@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'gameplan'
+
+GameplanInstance.load(Dir.pwd)
+GameplanInstance.validate_and_report
+GameplanInstance.generate

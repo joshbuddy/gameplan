@@ -1,0 +1,6 @@
+<h1>Application <%=@app.pretty_name%></h1>
+<ul>
+  <% @app.states.values.each do |state| %>
+  <li><a href="app-<%= @app.name %>-state-<%= state.name %>.html"><%= state.pretty_name %></a> - <%= state.description %></li>
+  <% end %>
+</ul>
