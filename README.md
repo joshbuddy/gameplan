@@ -6,9 +6,11 @@ Create a state machine for your application for planning purposes
 
 Define your app the following way:
 
-  state "home screen" do
-    present(:select_media)
-    if (:logged_out) do
-    end
+```ruby
+state "home screen" do
+  present(:select_media)
+  if (:logged_out) do
   end
+end
+```
 
