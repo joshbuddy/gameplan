@@ -1,5 +1,4 @@
 require "fileutils"
-require "renee"
 require "erb"
 require 'ostruct'
 
