@@ -19,7 +19,7 @@ class Gameplan
   attr_reader :apps, :flows, :last_app, :last_flow
 
   def load(dir)
-    Dir[File.join(dir, "*.rb")].each do |f|
+    Dir[File.join(dir, "*.gplan")].each do |f|
       instance_eval File.read(f), f, 1
     end
     compile
