@@ -1,6 +1,6 @@
 <h1>Applications</h1>
 <ul>
   <% @plan.apps.each do |name, app| %>
-    <li><a href="app-<%=name%>.html"><%=name%> - <%app.description%></li>
+    <li><a href="app-<%=name%>.html"><%=name%></a> - <%=app.description%></li>
   <% end %>
 </ul>
