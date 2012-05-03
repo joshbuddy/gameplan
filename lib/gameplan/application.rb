@@ -31,10 +31,8 @@ class Gameplan
     end
 
     def common_state(name, desc, &blk)
-      puts "defining common state..."
       raise "#{name} already exists" if @common_states[name]
       @last_state = @common_states[name] = CommonState.new(self, name, desc, &blk)
-      puts "compiling..."
       @last_state.compile
       @last_state
     end

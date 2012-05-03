@@ -1,11 +1,15 @@
 class Gameplan
   module Describe
-    def desc(desc)
-      @desc = desc
+    def desc(d)
+      description_list << d
     end
 
     def description
-      @desc
+      description_list.join("\n\n")
+    end
+
+    def description_list
+      @desc ||= []
     end
   end
 end

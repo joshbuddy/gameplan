@@ -3,4 +3,24 @@
   <% @app.states.values.each do |state| %>
   <li><a href="app-<%= @app.name %>-state-<%= state.name %>.html"><%= state.pretty_name %></a> - <%= state.description %></li>
   <% end %>
+  <div id="canvas" style='height: 1000, width: 1000'></div>
+  <script>
+    var g = new Graph();
+    
+    <% @app.states.values.each do |v| %>
+      <% v.endpoints.each do |e| %>
+        g.addEdge("<%=v.name%>", "<%=e.state%>")
+      <% end %>
+    <% end %>
+
+     
+    var layouter = new Graph.Layout.Spring(g);
+    layouter.layout();
+     
+    var renderer = new Graph.Renderer.Raphael('canvas', g, 1000, 1000);
+    renderer.draw();
+  </script>
+  Looks ugly? Hit <button id="redraw" onclick="redraw();">redraw</button>!<br>
+</html>
+
 </ul>

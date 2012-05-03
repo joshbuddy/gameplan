@@ -17,6 +17,8 @@ class Gameplan
     end
 
     def use_common(name, mapping = {})
+      common_state = @app.common_states[name]
+      desc common_state.description
       @app.common_states[name].endpoints.each do |ep|
         endpoint(ep.state == :self ? self.name : mapping[ep.state] || ep.state, ep.description)
       end

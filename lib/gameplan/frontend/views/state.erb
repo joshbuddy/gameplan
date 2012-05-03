@@ -1,6 +1,6 @@
 <h1>Application <a href="app-<%=@app.name%>.html"><%=@app.pretty_name%></a></h1>
 <h2><%= @state.pretty_name %> (<%= @state.name %>)</h2>
-<p><%= @state.description %></p>
+<%= @state.description_list.map { |d| "<p>#{d}</p>" }.join %>
 <ul>
   <% @state.endpoints.each do |endpoint| %>
   <li>Goto <a href="app-<%=@app.name%>-state-<%= endpoint.state %>.html"><%= endpoint.state %></a> <%= endpoint.description %></li>
