@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gameplan (0.0.1)
+    gameplan (0.0.2)
       rainbow
 
 GEM

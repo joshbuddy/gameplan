@@ -22,12 +22,7 @@ class Gameplan
     Dir[File.join(dir, "*.gplan")].each do |f|
       instance_eval File.read(f), f, 1
     end
-    compile
     self
-  end
-
-  def compile
-    @apps.values.each(&:compile)
   end
 
   def initialize
@@ -97,11 +92,12 @@ class Gameplan
 
   def app(name, type, &blk)
     @last_app = @apps[type] = Application.new(self, name, type, &blk)
+    @last_app.compile
   end
 
   def flow(name, &blk)
-    @last_flow = flow = Flow.new(self, name, &blk)
-    @flows[name] = flow
+    @last_flow = @flows[name] = Flow.new(self, name, &blk)
+    @last_flow.compile
     flow
   end
 
